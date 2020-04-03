@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://github.com/Dreamacro/clash/raw/master/docs/logo.png" alt="Clash" width="200">
   <br>
-  ClashX
+  ClashXR
   <br>
 </h1>
 
@@ -15,12 +15,12 @@ A rule based proxy For Mac base on [Clash](https://github.com/Dreamacro/clash).
 - HTTP/HTTPS and SOCKS protocol
 - Surge like configuration
 - GeoIP rule support
-- Support Vmess/Shadowsocks/Socks5
+- Support Vmess/Shadowsocks/Socks5/ShadowsocksR
 - Support for Netfilter TCP redirect
 
 ## Install
 
-You can download from [release](https://github.com/yichengchen/clashX/releases) page
+You can download from [release](https://github.com/paradiseduo/ClashXR/releases) page
 
 ## Build
 - Make sure have python3 and golang installed in your computer.
