@@ -27,7 +27,7 @@
 "ClashXR fail to create ~/.config/clash folder. Please check privileges or manually create folder and restart ClashXR." = "ClashXR fail to create ~/.config/clash folder. Please check privileges or manually create folder and restart ClashXR.";
 
 /* No comment provided by engineer. */
-"ClashXR needs to install a helper tool with administrator privileges to set system proxy quickly." = "ClashXR needs to install a helper tool with administrator privileges to set system proxy quickly.";
+"ClashXR needs to install/update a helper tool with administrator privileges to set system proxy quickly.If not helper tool installed, ClashXR won't be able to set your system proxy" = "ClashXR needs to install/update a helper tool with administrator privileges to set system proxy quickly.If not helper tool installed, ClashXR won't be able to set your system proxy";
 
 /* No comment provided by engineer. */
 "ClashXR Start Error!" = "ClashXR Start Error!";
