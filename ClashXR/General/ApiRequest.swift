@@ -23,6 +23,8 @@ class ApiRequest {
 
     private var proxyRespCache: ClashProxyResp?
 
+    private lazy var logQueue = DispatchQueue(label: "com.ClashX.core.log")
+
     private init() {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 604800
@@ -259,10 +261,18 @@ extension ApiRequest {
 
 extension ApiRequest {
     func resetStreamApis() {
-        trafficWebSocketRetryCount = 0
+        resetLogStreamApi()
+        resetTrafficStreamApi()
+    }
+    
+    func resetLogStreamApi() {
         loggingWebSocketRetryCount = 0
-        requestTrafficInfo()
         requestLog()
+    }
+    
+    func resetTrafficStreamApi() {
+        trafficWebSocketRetryCount = 0
+        requestTrafficInfo()
     }
 
     private func requestTrafficInfo() {
@@ -293,11 +303,11 @@ extension ApiRequest {
 
         let uriString = "/logs?level=".appending(ConfigManager.selectLoggingApiLevel.rawValue)
         let socket = WebSocket(url: URL(string: ConfigManager.apiUrl.appending(uriString))!)
-
         for header in ApiRequest.authHeader() {
             socket.request.setValue(header.value, forHTTPHeaderField: header.name)
         }
         socket.delegate = self
+        socket.callbackQueue = logQueue
         socket.connect()
         loggingWebSocket = socket
     }

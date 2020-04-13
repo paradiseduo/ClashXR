@@ -103,9 +103,7 @@ class MenuItemFactory {
         let proxyMap = proxyInfo.proxiesMap
 
         let isGlobalMode = ConfigManager.shared.currentConfig?.mode == .global
-        if isGlobalMode {
-            if proxyGroup.name != "GLOBAL" { return nil }
-        } else {
+        if !isGlobalMode {
             if proxyGroup.name == "GLOBAL" { return nil }
         }
 
@@ -120,10 +118,6 @@ class MenuItemFactory {
 
         for proxy in proxyGroup.all ?? [] {
             guard let proxyModel = proxyMap[proxy] else { continue }
-
-            if isGlobalMode && proxyModel.type == .select {
-                continue
-            }
             let proxyItem = ProxyMenuItem(proxy: proxyModel,
                                           action: #selector(MenuItemFactory.actionSelectProxy(sender:)),
                                           selected: proxy == selectedName,
