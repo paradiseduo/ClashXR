@@ -8,6 +8,7 @@
 
 A rule based proxy For Mac base on [Clash](https://github.com/Dreamacro/clash).
 
+You can do [this](https://bianyuan.xyz/) to use ClashXR.
 
 
 ## Features
