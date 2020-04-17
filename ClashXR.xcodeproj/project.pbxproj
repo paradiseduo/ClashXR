@@ -959,7 +959,7 @@
 					"$(PROJECT_DIR)/ClashXR/goClash",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.19.0;
+				MARKETING_VERSION = 1.19.1;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp";
 				PRODUCT_BUNDLE_IDENTIFIER = com.west2online.ClashXR;
 				PRODUCT_NAME = "$(TARGET_NAME)";

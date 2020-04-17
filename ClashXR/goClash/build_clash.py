@@ -2,9 +2,11 @@ import subprocess
 import datetime
 import plistlib
 import os
+from add_build_info import write_to_info
 
 def get_version():
-    with open('./go.mod') as file:
+    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "go.mod")
+    with open(path) as file:
         for line in file.readlines():
             if "clash" in line and "ClashX" not in line:
                 return line.split(" ")[-1].strip()
@@ -16,25 +18,10 @@ def build_clash(version):
     command = f"""CGO_CFLAGS=-mmacosx-version-min=10.12 \
 CGO_LDFLAGS=-mmacosx-version-min=10.10 \
 GOBUILD=CGO_ENABLED=0 \
-go build -ldflags '-X "github.com/Dreamacro/clash/constant.Version={version}" \
--X "github.com/Dreamacro/clash/constant.BuildTime={build_time}"' \
--buildmode=c-archive -o goClash.a """
+go build -ldflags '-X "github.com/wzdnzd/clash/constant.Version={version}" \
+-X "github.com/wzdnzd/clash/constant.BuildTime={build_time}"' \
+-buildmode=c-archive -o goClash.a"""
     subprocess.check_output(command, shell=True)
-
-
-def write_to_info(version):
-    path = "../info.plist"
-
-    with open(path, 'rb') as f:
-        contents = plistlib.load(f)
-
-    if not contents:
-        exit(-1)
-
-    contents["coreVersion"] = version
-    with open(path, 'wb') as f:
-        plistlib.dump(contents, f, sort_keys=False)
-
 
 def run():
     version = get_version()
@@ -44,6 +31,7 @@ def run():
     if os.environ.get("CI", False) or os.environ.get("GITHUB_ACTIONS", False):
         print("writing info.plist")
         write_to_info(version)
+    write_to_info(version)
     print("done")
 
 

@@ -20,7 +20,7 @@ class ConfigFileManager {
     }
 
     func watchConfigFile(configName: String) {
-        let path = "\(kConfigFolderPath)\(configName).yaml"
+        let path = Paths.configPath(for: configName)
         witness = Witness(paths: [path], flags: .FileEvents, latency: 0.3) {
             [weak self] events in
             guard let self = self else { return }
@@ -33,13 +33,13 @@ class ConfigFileManager {
                     NSUserNotificationCenter.default
                         .postConfigFileChangeDetectionNotice()
                     NotificationCenter.default
-                        .post(Notification(name: kConfigFileChange))
+                        .post(Notification(name: .configFileChange))
                     break
                 }
             }
         }
     }
-
+    
     @discardableResult
     static func backupAndRemoveConfigFile() -> Bool {
         let path = kDefaultConfigFilePath
@@ -49,6 +49,7 @@ class ConfigFileManager {
         }
         return true
     }
+
 
     static func copySampleConfigIfNeed() {
         if !FileManager.default.fileExists(atPath: kDefaultConfigFilePath) {

@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Icon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.west2online.ClashXR</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -92,12 +92,12 @@
 	<key>SUFeedURL</key>
 	<string>https://yichengchen.github.io/clashX/appcast.xml</string>
 	<key>buildTime</key>
-	<string>2020-04-11 10:44</string>
+	<string>2020-04-17 11:19</string>
 	<key>coreVersion</key>
 	<string>v0.19.0</string>
 	<key>gitBranch</key>
-	<string>ClashXR</string>
+	<string>master</string>
 	<key>gitCommit</key>
-	<string>1.19.0-27-g5e847d2</string>
+	<string>ba09dbc</string>
 </dict>
 </plist>

@@ -346,7 +346,7 @@ fileprivate enum DaemonInstallResult {
             case kSMErrorJobNotFound: return "blessError: kSMErrorJobNotFound"
             case kSMErrorServiceUnavailable: return "blessError: kSMErrorServiceUnavailable"
             case kSMErrorJobNotFound: return "blessError: kSMErrorJobNotFound"
-            case kSMErrorJobMustBeEnabled: return "ClashX Helper is disabled by other process. Please run \"sudo launchctl enable system/com.west2online.ClashXR.ProxyConfigHelper\" in your terminal. The command has been copied to your pasteboard"
+            case kSMErrorJobMustBeEnabled: return "ClashXR Helper is disabled by other process. Please run \"sudo launchctl enable system/com.west2online.ClashXR.ProxyConfigHelper\" in your terminal. The command has been copied to your pasteboard"
             case kSMErrorInvalidPlist: return "blessError: kSMErrorInvalidPlist"
             default:
                 return "bless unknown error:\(code)"
