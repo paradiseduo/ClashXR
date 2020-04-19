@@ -92,12 +92,12 @@
 	<key>SUFeedURL</key>
 	<string>https://yichengchen.github.io/clashX/appcast.xml</string>
 	<key>buildTime</key>
-	<string>2020-04-17 11:19</string>
+	<string>2020-04-19 18:42</string>
 	<key>coreVersion</key>
 	<string>v0.19.0</string>
 	<key>gitBranch</key>
 	<string>master</string>
 	<key>gitCommit</key>
-	<string>ba09dbc</string>
+	<string>1.19.1</string>
 </dict>
 </plist>
