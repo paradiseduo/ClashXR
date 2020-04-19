@@ -1,0 +1,4 @@
+*.md linguist-language=Swift
+*.yml linguist-language=Swift
+*.backup linguist-language=Swift
+*.toml linguist-language=Swift
