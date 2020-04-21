@@ -69,6 +69,8 @@ extern "C" {
 #endif
 
 
+extern void initClashCore();
+
 extern char* verifyClashConfig(char* p0);
 
 extern char* run(GoUint8 p0);
