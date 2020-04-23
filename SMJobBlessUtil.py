@@ -358,12 +358,7 @@ def setreq(appPath, appInfoPlistPath, toolInfoPlistPaths):
         toolInfoPlistPathToToolInfoMap[toolInfoPlistPath] = toolInfo
         if not toolInfo.has_key("CFBundleIdentifier"):
             raise CheckException("'CFBundleIdentifier' not found", toolInfoPlistPath)
-#        bundleID = toolInfo["CFBundleIdentifier"]
-        bundleID = toolInfo["CFBundleName"]
-        print("---------------")
-        print(bundleID)
-        print(toolInfo)
-        print("---------------")
+        bundleID = toolInfo["CFBundleIdentifier"]
         if not isinstance(bundleID, basestring):
             raise CheckException("'CFBundleIdentifier' must be a string", toolInfoPlistPath)
         appToolDict[bundleID] = toolNameToReqMap[bundleID]
@@ -371,8 +366,6 @@ def setreq(appPath, appInfoPlistPath, toolInfoPlistPaths):
     # Set the SMPrivilegedExecutables value in the app "Info.plist".
 
     appInfo = readInfoPlistFromPath(appInfoPlistPath)
-    print("---*******---")
-    print(appInfo)
     needsUpdate = not appInfo.has_key("SMPrivilegedExecutables")
     if not needsUpdate:
         oldAppToolDict = appInfo["SMPrivilegedExecutables"]

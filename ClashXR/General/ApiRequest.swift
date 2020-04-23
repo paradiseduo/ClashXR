@@ -86,7 +86,7 @@ class ApiRequest {
 
         let data = clashGetConfigs()?.toString().data(using: .utf8) ?? Data()
         guard let config = ClashConfig.fromData(data) else {
-            NSUserNotificationCenter.default.post(title: "Error", info: "Get clash config failed. Try Fix your config file then reload config or restart ClashX.")
+            NSUserNotificationCenter.default.post(title: "Error", info: "Get clash config failed. Try Fix your config file then reload config or restart ClashXR.")
             (NSApplication.shared.delegate as? AppDelegate)?.startProxy()
             return
         }
@@ -95,7 +95,7 @@ class ApiRequest {
 
     static func requestConfigUpdate(configName: String, callback: @escaping ((ErrorString?) -> Void)) {
         let filePath = Paths.configPath(for: configName)
-        let placeHolderErrorDesp = "Error occoured, Please try to fix it by restarting ClashX. "
+        let placeHolderErrorDesp = "Error occoured, Please try to fix it by restarting ClashXR. "
 
         // DEV MODE: Use API
         if !ConfigManager.builtInApiMode {

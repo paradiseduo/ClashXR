@@ -85,7 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // install proxy helper
         _ = ClashResourceManager.check()
-        SystemProxyManager.shared.checkInstall()
+        PrivilegedHelperManager.shared.checkInstall()
         ConfigFileManager.copySampleConfigIfNeed()
 
         PFMoveToApplicationsFolderIfNecessary()
@@ -253,8 +253,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter
             .default
             .rx
-            .notification(.systemNetworkStatusIPUpdate)
-            .observeOn(MainScheduler.instance).debounce(.seconds(5), scheduler: MainScheduler.instance).bind { [weak self] _ in
+            .notification(.systemNetworkStatusIPUpdate).map({ _ in
+                NetworkChangeNotifier.getPrimaryIPAddress(allowIPV6: false)
+            })
+            .startWith(NetworkChangeNotifier.getPrimaryIPAddress(allowIPV6: false))
+            .distinctUntilChanged()
+            .skip(1)
+            .filter { $0 != nil }
+            .observeOn(MainScheduler.instance)
+            .debounce(.seconds(5), scheduler: MainScheduler.instance).bind { [weak self] _ in
                 self?.healthHeckOnNetworkChange()
             }.disposed(by: disposeBag)
 
@@ -265,7 +272,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .distinctUntilChanged()
             .filter { $0 }.bind { _ in
                 let rawProxy = NetworkChangeNotifier.getRawProxySetting()
-                Logger.log("proxy changed to no clashX setting: \(rawProxy)", level: .warning)
+                Logger.log("proxy changed to no clashXR setting: \(rawProxy)", level: .warning)
                 NSUserNotificationCenter.default.postProxyChangeByOtherAppNotice()
             }.disposed(by: disposeBag)
     }
@@ -425,7 +432,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func healthHeckOnNetworkChange() {
-        guard NetworkChangeNotifier.getPrimaryIPAddress() != nil else { return }
         ApiRequest.requestProxyGroupList {
             res in
             for group in res.proxyGroups {
@@ -604,7 +610,7 @@ extension AppDelegate {
 
     @IBAction func actionSetUseApiMode(_ sender: Any) {
         let alert = NSAlert()
-        alert.informativeText = NSLocalizedString("Need to Restart the ClashX to Take effect, Please start clashX manually", comment: "")
+        alert.informativeText = NSLocalizedString("Need to Restart the ClashXR to Take effect, Please start clashXR manually", comment: "")
         alert.addButton(withTitle: NSLocalizedString("Apply and Quit", comment: ""))
         alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
         if alert.runModal() == .alertFirstButtonReturn {
@@ -777,7 +783,7 @@ extension AppDelegate {
 extension AppDelegate {
     func showClashPortErrorAlert() {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("ClashX Start Error!", comment: "")
-        alert.informativeText = NSLocalizedString("Ports Open Fail, Please try to restart ClashX", comment: "")
+        alert.messageText = NSLocalizedString("ClashXR Start Error!", comment: "")
+        alert.informativeText = NSLocalizedString("Ports Open Fail, Please try to restart ClashXR", comment: "")
     }
 }
