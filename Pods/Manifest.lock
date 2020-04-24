@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.1.0)
+  - Alamofire (5.0.5)
   - AppCenter/Analytics (3.1.1):
     - AppCenter/Core
   - AppCenter/Core (3.1.1)
@@ -51,7 +51,7 @@ SPEC REPOS:
     - WebViewJavascriptBridge
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   AppCenter: 513d32888854d67d8cfbd3a8db16aeb5fb2e2a75
   CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df

@@ -49,13 +49,13 @@ public protocol AlamofireExtended {
 public extension AlamofireExtended {
     /// Static Alamofire extension point.
     static var af: AlamofireExtension<Self>.Type {
-        get { AlamofireExtension<Self>.self }
+        get { return AlamofireExtension<Self>.self }
         set {}
     }
 
     /// Instance Alamofire extension point.
     var af: AlamofireExtension<Self> {
-        get { AlamofireExtension(self) }
+        get { return AlamofireExtension(self) }
         set {}
     }
 }
