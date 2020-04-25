@@ -10,7 +10,7 @@ A rule based proxy For Mac base on [Clash](https://github.com/Dreamacro/clash).
 
 Based on [clashX](https://github.com/yichengchen/clashX)
 
-You can do [this](https://bianyuan.xyz/) to use ClashXR.
+You can do [this](https://github.com/paradiseduo/subweb) to use ClashXR.
 
 
 ## Features
