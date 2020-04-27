@@ -21,25 +21,29 @@ class ProxyMenuItem: NSMenuItem {
     }
 
     init(proxy: ClashProxy,
+         group: ClashProxy,
          action selector: Selector?,
-         selected: Bool,
-         speedtestAble: Bool,
-         maxProxyNameLength: CGFloat) {
+         simpleItem: Bool = false) {
         proxyName = proxy.name
-        self.maxProxyNameLength = maxProxyNameLength
-        super.init(title: proxyName, action: selector, keyEquivalent: "")
-        if speedtestAble && enableShowUsingView {
-            view = ProxyItemView(name: proxyName,
-                                 selected: selected,
-                                 delay: proxy.history.last?.delayDisplay)
-        } else {
-            if speedtestAble {
-                attributedTitle = getAttributedTitle(name: proxyName, delay: proxy.history.last?.delayDisplay)
-            }
-            state = selected ? .on : .off
-        }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(updateDelayNotification(note:)), name: .speedTestFinishForProxy, object: nil)
+        maxProxyNameLength = simpleItem ? 0 : group.maxProxyNameLength
+
+        super.init(title: proxyName, action: selector, keyEquivalent: "")
+
+        if !simpleItem && enableShowUsingView && group.isSpeedTestable {
+            view = ProxyItemView(proxy: proxy)
+        } else if !simpleItem {
+            attributedTitle = getAttributedTitle(name: proxyName, delay: proxy.history.last?.delayDisplay)
+        }
+        let selected = group.now == proxy.name
+        updateSelected(selected)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(proxyGroupInfoUpdate(note:)), name: .proxyUpdate(for: group.name), object: nil)
+
+        if !simpleItem {
+            NotificationCenter.default.addObserver(self, selector: #selector(updateDelayNotification(note:)), name: .speedTestFinishForProxy, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(proxyInfoUpdate(note:)), name: .proxyUpdate(for: proxy.name), object: nil)
+        }
     }
 
     required init(coder decoder: NSCoder) {
@@ -58,11 +62,37 @@ class ProxyMenuItem: NSMenuItem {
             return
         }
         if let delay = note.userInfo?["delay"] as? String {
-            if enableShowUsingView {
-                (view as? ProxyItemView)?.update(delay: delay)
-            } else {
-                attributedTitle = getAttributedTitle(name: proxyName, delay: delay)
-            }
+            updateDelay(delay, rawValue: note.userInfo?["rawValue"] as? Int)
+        }
+    }
+
+    @objc private func proxyInfoUpdate(note: Notification) {
+        guard let info = note.object as? ClashProxy else {
+            assertionFailure()
+            return
+        }
+        updateDelay(info.history.last?.delayDisplay, rawValue: info.history.last?.delay)
+    }
+
+    @objc private func proxyGroupInfoUpdate(note: Notification) {
+        guard let group = note.object as? ClashProxy else { return }
+        let selected = group.now == proxyName
+        updateSelected(selected)
+    }
+
+    private func updateSelected(_ selected: Bool) {
+        if let v = view as? ProxyItemView {
+            v.update(selected: selected)
+        } else {
+            state = selected ? .on : .off
+        }
+    }
+
+    private func updateDelay(_ delay: String?, rawValue: Int?) {
+        if enableShowUsingView {
+            (view as? ProxyItemView)?.update(str: delay, value: rawValue)
+        } else {
+            attributedTitle = getAttributedTitle(name: proxyName, delay: delay)
         }
     }
 }
@@ -99,7 +129,7 @@ extension ProxyMenuItem {
         attributed.addAttributes(hackAttr, range: NSRange(name.utf16.count..<name.utf16.count + 1))
 
         if delay != nil {
-            let delayAttr = [NSAttributedString.Key.font: NSFont.menuBarFont(ofSize: 12)]
+            let delayAttr = [NSAttributedString.Key.font: NSFont.monospacedDigitSystemFont(ofSize: 12, weight: .regular)]
             attributed.addAttributes(delayAttr, range: NSRange(name.utf16.count + 1..<str.utf16.count))
         }
         return attributed
