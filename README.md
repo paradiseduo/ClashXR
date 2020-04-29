@@ -36,7 +36,7 @@ You can download from [release](https://github.com/paradiseduo/ClashXR/releases)
   
 - Signature check
   ```shell 
-  ./smbjob.py setreq /path/to/ClashXR.app ClashXR/Info.plist ProxyConfigHelper/Helper-Info.plist
+  ./SMJobBlessUtil.py setreq /path/to/ClashXR.app ClashXR/Info.plist ProxyConfigHelper/Helper-Info.plist
   ```
 
 - Build and run.
