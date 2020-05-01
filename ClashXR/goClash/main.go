@@ -21,30 +21,12 @@ func isAddrValid(addr string) bool {
 		comps := strings.Split(addr, ":")
 		v := comps[len(comps)-1]
 		if port, err := strconv.Atoi(v); err == nil {
-			if port > 0 && port < 65535 && checkPortAvailable(port, false) {
+			if port > 0 && port < 65535 {
 				return true
 			}
 		}
 	}
 	return false
-}
-
-func checkPortAvailable(port int, lan bool) bool {
-	var addr string
-	if port < 1 || port > 65534 {
-		return false
-	}
-	if lan {
-		addr = ":"
-	} else {
-		addr = "127.0.0.1:"
-	}
-	l, err := net.Listen("tcp", addr+strconv.Itoa(port))
-	if err != nil {
-		return false
-	}
-	_ = l.Close()
-	return true
 }
 
 //export initClashCore
@@ -66,19 +48,6 @@ func parseConfig(checkPort bool) (*config.Config, error) {
 			}
 			cfg.General.ExternalController = "127.0.0.1:" + strconv.Itoa(port)
 			cfg.General.Secret = ""
-		}
-		lan := cfg.General.AllowLan
-
-		if !checkPortAvailable(cfg.General.Port, lan) {
-			if port, err := freeport.GetFreePort(); err == nil {
-				cfg.General.Port = port
-			}
-		}
-
-		if !checkPortAvailable(cfg.General.SocksPort, lan) {
-			if port, err := freeport.GetFreePort(); err == nil {
-				cfg.General.SocksPort = port
-			}
 		}
 	}
 

@@ -57,6 +57,7 @@
 		4EE3C7052374FF5F00683B13 /* Pods_ClashXR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25EC8D7AAAAA52DAACEA7F59 /* Pods_ClashXR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7099A830FE178EEA922BEB70 /* Pods_ClashXR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EC8D7AAAAA52DAACEA7F59 /* Pods_ClashXR.framework */; };
 		8BC67C90243E31CF00784A24 /* goClash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC67C8F243E31CF00784A24 /* goClash.a */; };
+		BE61A1DB245BE8A50007FB64 /* ClashStatusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */; };
 		E8C6AB2B2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6AB2A2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift */; };
 		F910AA24240134AF00116E95 /* ProxyGroupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F910AA23240134AF00116E95 /* ProxyGroupMenu.swift */; };
 		F915A4622366ADEF004840BE /* ClashConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915A4612366ADEF004840BE /* ClashConnection.swift */; };
@@ -188,6 +189,7 @@
 		4E49531F23753ACC00806BBA /* com.west2online.ClashXR.ProxyConfigHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = com.west2online.ClashXR.ProxyConfigHelper.entitlements; sourceTree = "<group>"; };
 		8BC67C8F243E31CF00784A24 /* goClash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = goClash.a; path = ClashXR/goClash/goClash.a; sourceTree = SOURCE_ROOT; };
 		8BC67C91243E31E000784A24 /* goClash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = goClash.h; path = ClashXR/goClash/goClash.h; sourceTree = SOURCE_ROOT; };
+		BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashStatusTool.swift; sourceTree = "<group>"; };
 		E8C6AB2A2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyDelayHistoryMenu.swift; sourceTree = "<group>"; };
 		F910AA23240134AF00116E95 /* ProxyGroupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyGroupMenu.swift; sourceTree = "<group>"; };
 		F915A4612366ADEF004840BE /* ClashConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashConnection.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				4960A6DA2136529200B940C9 /* JSBridgeHandler.swift */,
 				493AEAE2221AE3420016FE98 /* AppVersionUtil.swift */,
 				49D176A62355FE680093DD7B /* NetworkChangeNotifier.swift */,
+				BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				499A485E22ED9B7C00F6C675 /* NSTableView+Reload.swift in Sources */,
 				F939724C23A4B33500FE5A3F /* ClashProvider.swift in Sources */,
 				49862FA0218418C600A1D5EC /* ClashRule.swift in Sources */,
+				BE61A1DB245BE8A50007FB64 /* ClashStatusTool.swift in Sources */,
 				49C9EF64223E78F5005D8B6A /* ClashProxy.swift in Sources */,
 				F9E8F34623A12B89002DE5E8 /* String+Encode.swift in Sources */,
 			);

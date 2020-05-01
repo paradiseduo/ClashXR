@@ -131,13 +131,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Logger.log("ClashX quit without clean waiting")
             return .terminateNow
         }
-        
-        if !shouldWait {
-            Logger.log("ClashX quit without clean waiting")
-            return .terminateNow
-        }
 
-        statusItem.menu = nil
+        if statusItem != nil, statusItem.menu != nil {
+            statusItem.menu = nil
+        }
+        disposeBag = DisposeBag()
 
         DispatchQueue.global(qos: .default).async {
             let res = group.wait(timeout: .now() + 5)
@@ -147,9 +145,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             case .timedOut:
                 Logger.log("ClashX quit after clean up timeout")
             }
-            DispatchQueue.main.async {
-                NSApp.reply(toApplicationShouldTerminate: true)
-            }
+            NSApp.reply(toApplicationShouldTerminate: true)
         }
 
         Logger.log("ClashX quit wait for clean up")
@@ -238,9 +234,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.apiPortMenuItem.title = "Api Port: \(ConfigManager.shared.apiPort)"
                 self.ipMenuItem.title = "IP: \(NetworkChangeNotifier.getPrimaryIPAddress() ?? "")"
 
-                if config.port == 0 || config.socketPort == 0 {
-                    self.showClashPortErrorAlert()
-                }
+                ClashStatusTool.checkPortConfig(cfg: config)
 
             }.disposed(by: disposeBag)
     }
@@ -815,15 +809,5 @@ extension AppDelegate {
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "didGetUrl"), object: nil, userInfo: userInfo)
             }
         }
-    }
-}
-
-// MARK: - Alerts
-
-extension AppDelegate {
-    func showClashPortErrorAlert() {
-        let alert = NSAlert()
-        alert.messageText = NSLocalizedString("ClashXR Start Error!", comment: "")
-        alert.informativeText = NSLocalizedString("Ports Open Fail, Please try to restart ClashXR", comment: "")
     }
 }
