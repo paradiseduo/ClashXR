@@ -55,10 +55,7 @@ open class MultipartFormData {
         }
 
         static func randomBoundary() -> String {
-            let first = UInt32.random(in: UInt32.min...UInt32.max)
-            let second = UInt32.random(in: UInt32.min...UInt32.max)
-
-            return String(format: "alamofire.boundary.%08x%08x", first, second)
+            return String(format: "alamofire.boundary.%08x%08x", arc4random(), arc4random())
         }
 
         static func boundaryData(forBoundaryType boundaryType: BoundaryType, boundary: String) -> Data {
@@ -100,7 +97,7 @@ open class MultipartFormData {
     open lazy var contentType: String = "multipart/form-data; boundary=\(self.boundary)"
 
     /// The content length of all body parts used to generate the `multipart/form-data` not including the boundaries.
-    public var contentLength: UInt64 { bodyParts.reduce(0) { $0 + $1.bodyContentLength } }
+    public var contentLength: UInt64 { return bodyParts.reduce(0) { $0 + $1.bodyContentLength } }
 
     /// The boundary used to separate the body parts in the encoded form data.
     public let boundary: String
@@ -527,15 +524,15 @@ open class MultipartFormData {
     // MARK: - Private - Boundary Encoding
 
     private func initialBoundaryData() -> Data {
-        BoundaryGenerator.boundaryData(forBoundaryType: .initial, boundary: boundary)
+        return BoundaryGenerator.boundaryData(forBoundaryType: .initial, boundary: boundary)
     }
 
     private func encapsulatedBoundaryData() -> Data {
-        BoundaryGenerator.boundaryData(forBoundaryType: .encapsulated, boundary: boundary)
+        return BoundaryGenerator.boundaryData(forBoundaryType: .encapsulated, boundary: boundary)
     }
 
     private func finalBoundaryData() -> Data {
-        BoundaryGenerator.boundaryData(forBoundaryType: .final, boundary: boundary)
+        return BoundaryGenerator.boundaryData(forBoundaryType: .final, boundary: boundary)
     }
 
     // MARK: - Private - Errors

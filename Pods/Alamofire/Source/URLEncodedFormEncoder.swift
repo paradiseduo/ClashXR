@@ -205,11 +205,11 @@ public final class URLEncodedFormEncoder {
         }
 
         private func convertToSnakeCase(_ key: String) -> String {
-            convert(key, usingSeparator: "_")
+            return convert(key, usingSeparator: "_")
         }
 
         private func convertToKebabCase(_ key: String) -> String {
-            convert(key, usingSeparator: "-")
+            return convert(key, usingSeparator: "-")
         }
 
         private func convert(_ key: String, usingSeparator separator: String) -> String {
@@ -403,7 +403,7 @@ public final class URLEncodedFormEncoder {
 final class _URLEncodedFormEncoder {
     var codingPath: [CodingKey]
     // Returns an empty dictionary, as this encoder doesn't support userInfo.
-    var userInfo: [CodingUserInfoKey: Any] { [:] }
+    var userInfo: [CodingUserInfoKey: Any] { return [:] }
 
     let context: URLEncodedFormContext
 
@@ -435,19 +435,19 @@ extension _URLEncodedFormEncoder: Encoder {
     }
 
     func unkeyedContainer() -> UnkeyedEncodingContainer {
-        _URLEncodedFormEncoder.UnkeyedContainer(context: context,
-                                                codingPath: codingPath,
-                                                boolEncoding: boolEncoding,
-                                                dataEncoding: dataEncoding,
-                                                dateEncoding: dateEncoding)
+        return _URLEncodedFormEncoder.UnkeyedContainer(context: context,
+                                                       codingPath: codingPath,
+                                                       boolEncoding: boolEncoding,
+                                                       dataEncoding: dataEncoding,
+                                                       dateEncoding: dateEncoding)
     }
 
     func singleValueContainer() -> SingleValueEncodingContainer {
-        _URLEncodedFormEncoder.SingleValueContainer(context: context,
-                                                    codingPath: codingPath,
-                                                    boolEncoding: boolEncoding,
-                                                    dataEncoding: dataEncoding,
-                                                    dateEncoding: dateEncoding)
+        return _URLEncodedFormEncoder.SingleValueContainer(context: context,
+                                                           codingPath: codingPath,
+                                                           boolEncoding: boolEncoding,
+                                                           dataEncoding: dataEncoding,
+                                                           dateEncoding: dateEncoding)
     }
 }
 
@@ -592,7 +592,7 @@ extension _URLEncodedFormEncoder {
         }
 
         private func nestedCodingPath(for key: CodingKey) -> [CodingKey] {
-            codingPath + [key]
+            return codingPath + [key]
         }
     }
 }
@@ -640,19 +640,19 @@ extension _URLEncodedFormEncoder.KeyedContainer: KeyedEncodingContainerProtocol 
     }
 
     func superEncoder() -> Encoder {
-        _URLEncodedFormEncoder(context: context,
-                               codingPath: codingPath,
-                               boolEncoding: boolEncoding,
-                               dataEncoding: dataEncoding,
-                               dateEncoding: dateEncoding)
+        return _URLEncodedFormEncoder(context: context,
+                                      codingPath: codingPath,
+                                      boolEncoding: boolEncoding,
+                                      dataEncoding: dataEncoding,
+                                      dateEncoding: dateEncoding)
     }
 
     func superEncoder(forKey key: Key) -> Encoder {
-        _URLEncodedFormEncoder(context: context,
-                               codingPath: nestedCodingPath(for: key),
-                               boolEncoding: boolEncoding,
-                               dataEncoding: dataEncoding,
-                               dateEncoding: dateEncoding)
+        return _URLEncodedFormEncoder(context: context,
+                                      codingPath: nestedCodingPath(for: key),
+                                      boolEncoding: boolEncoding,
+                                      dataEncoding: dataEncoding,
+                                      dateEncoding: dateEncoding)
     }
 }
 
@@ -802,7 +802,7 @@ extension _URLEncodedFormEncoder {
 
         var count = 0
         var nestedCodingPath: [CodingKey] {
-            codingPath + [AnyCodingKey(intValue: count)!]
+            return codingPath + [AnyCodingKey(intValue: count)!]
         }
 
         private let context: URLEncodedFormContext
@@ -948,7 +948,7 @@ final class URLEncodedFormSerializer {
 
 extension Array where Element == String {
     func joinedWithAmpersands() -> String {
-        joined(separator: "&")
+        return joined(separator: "&")
     }
 }
 
