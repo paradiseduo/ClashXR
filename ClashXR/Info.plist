@@ -80,14 +80,14 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SMAuthorizedClients</key>
-	<array>
-		<string>anchor apple generic and identifier "com.west2online.ClashXR.ProxyConfigHelper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.CN] = "(NZFF8B8MRX)")</string>
-	</array>
 	<key>NSSupportsAutomaticTermination</key>
 	<false/>
 	<key>NSSupportsSuddenTermination</key>
 	<false/>
+	<key>SMAuthorizedClients</key>
+	<array>
+		<string>anchor apple generic and identifier "com.west2online.ClashXR.ProxyConfigHelper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.CN] = "(NZFF8B8MRX)")</string>
+	</array>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>com.west2online.ClashXR.ProxyConfigHelper</key>
