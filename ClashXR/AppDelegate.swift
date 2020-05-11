@@ -52,6 +52,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var disposeBag = DisposeBag()
     var statusItemView: StatusItemView!
     var isSpeedTesting = false
+    
+    var runAfterConfigReload: (() -> Void)?
 
     var dashboardWindowController: ClashWebViewWindowController?
 
@@ -96,6 +98,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // start proxy
         initClashCore()
         setupData()
+        runAfterConfigReload = { [weak self] in
+            self?.selectOutBoundModeWithMenory()
+            self?.selectAllowLanWithMenory()
+        }
         updateConfig(showNotification: false)
         updateLoggingLevel()
 
@@ -225,8 +231,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.proxyModeMenuItem.title = "\(NSLocalizedString("Proxy Mode", comment: "")) (\(config.mode.name))"
 
 
-                if old?.port != config.port && ConfigManager.shared.proxyPortAutoSet {
-                    SystemProxyManager.shared.enableProxy(port: config.port, socksPort: config.socketPort)
+                if old?.port != config.port || old?.socketPort != config.socketPort {
+                    Logger.log("port config updated,new: \(config.port),\(config.socketPort)")
+                    if ConfigManager.shared.proxyPortAutoSet {
+                        SystemProxyManager.shared.enableProxy(port: config.port, socksPort: config.socketPort)
+                    }
                 }
 
                 self.httpPortMenuItem.title = "Http Port: \(config.port)"
@@ -396,8 +405,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             } else {
                 self.syncConfig()
                 self.resetStreamApi()
-                self.selectOutBoundModeWithMenory()
-                self.selectAllowLanWithMenory()
+                self.runAfterConfigReload?()
+                self.runAfterConfigReload = nil
                 if showNotification {
                     NSUserNotificationCenter.default
                         .post(title: NSLocalizedString("Reload Config Succeed", comment: ""),
