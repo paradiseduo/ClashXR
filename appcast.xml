@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>ClashX ChangeLog</title>
+        <link>https://github.com/paradiseduo/ClashXR</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>cn</language>
+        <item>
+            <title>1.20.1</title>
+            <description><![CDATA[<ul>
+  <li>Try fix “open port fail” error.</li>
+</ul>
+]]></description>
+            <pubDate>Sun, 17 May 2020 12:31:45 +0000</pubDate>
+            <enclosure
+                url="https://github.com/paradiseduo/ClashXR/releases/download/1.20.1/ClashXR.zip"
+                sparkle:version="1.20.1"
+                type="application/octet-stream"
+            />
+        </item>
+        <item>
+            <title>1.20.0</title>
+            <description><![CDATA[<ul>
+  <li>Update clash core to v0.20.0, visit <a href="https://github.com/Dreamacro/clash/releases/tag/v0.20.0">Release Note</a> for details.</li>
+  <li>Try fix port open fail at launch.</li>
+  <li>Default enable <code class="language-plaintext highlighter-rouge">Enhance proxy list render</code> at macOS above 10.15.2 and provide colorful proxy latency display. If this  encounter problems, please go to experimental setting and disable it.</li>
+</ul>
+
+]]></description>
+            <pubDate>Sun, 10 May 2020 04:36:35 +0000</pubDate>
+            <enclosure
+                url="https://github.com/paradiseduo/ClashXR/releases/download/1.20.0/ClashXR.zip"
+                sparkle:version="1.20.0"
+                type="application/octet-stream"
+            />
+        </item>
+        <item>
+            <title>1.19.2</title>
+            <description><![CDATA[<ul>
+  <li>Update helper tool install flow and fix bugs.</li>
+  <li>Fix redundant health check &amp; remove set proxy support for l2tp.</li>
+  <li>Update core.</li>
+  <li>Bugfixs.</li>
+</ul>
+]]></description>
+            <pubDate>Fri, 24 Apr 2020 13:22:16 +0000</pubDate>
+            <enclosure
+                url="https://github.com/paradiseduo/ClashXR/releases/download/1.19.2/ClashXR.zip"
+                sparkle:version="1.19.2"
+                type="application/octet-stream"
+            />
+        </item>
+    </channel>
+</rss>
