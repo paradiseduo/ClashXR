@@ -68,16 +68,25 @@ class MenuItemFactory {
         updateProxyList(withMenus: items)
     }
 
-    static func generateSwitchConfigMenuItems() -> [NSMenuItem] {
-        var items = [NSMenuItem]()
-        for config in ConfigManager.getConfigFilesList() {
+    static func generateSwitchConfigMenuItems(complete: @escaping (([NSMenuItem]) -> Void)) {
+        let generateMenuItem: ((String) -> NSMenuItem) = {
+            config in
             let item = NSMenuItem(title: config, action: #selector(MenuItemFactory.actionSelectConfig(sender:)), keyEquivalent: "")
             item.target = MenuItemFactory.self
             item.state = ConfigManager.selectConfigName == config ? .on : .off
-            items.append(item)
+            return item
         }
-        return items
+
+        if iCloudManager.shared.isICloudEnable() {
+            iCloudManager.shared.getConfigFilesList {
+                complete($0.map { generateMenuItem($0) })
+            }
+        } else {
+            complete(ConfigManager.getConfigFilesList().map { generateMenuItem($0) })
+        }
     }
+
+    // MARK: - Private
 
     // MARK: Updaters
 

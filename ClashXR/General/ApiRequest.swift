@@ -24,9 +24,9 @@ class ApiRequest {
     private var proxyRespCache: ClashProxyResp?
 
     private lazy var logQueue = DispatchQueue(label: "com.ClashX.core.log")
-    
+
     static let clashRequestQueue = DispatchQueue(label: "com.clashx.clashRequestQueue")
-    
+
     private init() {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 604800
@@ -96,18 +96,35 @@ class ApiRequest {
     }
 
     static func requestConfigUpdate(configName: String, callback: @escaping ((ErrorString?) -> Void)) {
-        let filePath = Paths.configPath(for: configName)
+        if iCloudManager.shared.isICloudEnable() {
+            iCloudManager.shared.getUrl { url in
+                guard let url = url else {
+                    callback("icloud error")
+                    return
+                }
+                let configPath = url.appendingPathComponent(Paths.configFileName(for: configName)).path
+                requestConfigUpdate(configPath: configPath, callback: callback)
+            }
+        } else {
+            let filePath = Paths.localConfigPath(for: configName)
+            requestConfigUpdate(configPath: filePath, callback: callback)
+        }
+
+    }
+    
+    static func requestConfigUpdate(configPath: String, callback: @escaping ((ErrorString?) -> Void)) {
         let placeHolderErrorDesp = "Error occoured, Please try to fix it by restarting ClashXR. "
 
         // DEV MODE: Use API
         if !ConfigManager.builtInApiMode {
-            req("/configs", method: .put, parameters: ["Path": filePath], encoding: JSONEncoding.default).responseJSON { res in
+            req("/configs", method: .put, parameters: ["Path": configPath], encoding: JSONEncoding.default).responseJSON { res in
                 if res.response?.statusCode == 204 {
                     ConfigManager.shared.isRunning = true
                     callback(nil)
                 } else {
                     let errorJson = try? res.result.get()
                     let err = JSON(errorJson ?? "")["message"].string ?? placeHolderErrorDesp
+                    Logger.log(err)
                     callback(err)
                 }
             }
@@ -116,11 +133,12 @@ class ApiRequest {
 
         // NORMAL MODE: Use internal api
         clashRequestQueue.async {
-            let res = clashUpdateConfig(filePath.goStringBuffer())?.toString() ?? placeHolderErrorDesp
+            let res = clashUpdateConfig(configPath.goStringBuffer())?.toString() ?? placeHolderErrorDesp
             DispatchQueue.main.async {
                 if res == "success" {
                     callback(nil)
                 } else {
+                    Logger.log(res)
                     callback(res)
                 }
             }
@@ -174,6 +192,7 @@ class ApiRequest {
     }
 
     static func updateAllowLan(allow: Bool, completeHandler: (() -> Void)? = nil) {
+        Logger.log("update allow lan:\(allow)", level: .debug)
         req("/configs",
             method: .patch,
             parameters: ["allow-lan": allow],
@@ -201,7 +220,7 @@ class ApiRequest {
             callback(lists)
         }
     }
-    
+
     static func getMergedProxyData(complete: ((ClashProxyResp?) -> Void)? = nil) {
         let group = DispatchGroup()
         group.enter()

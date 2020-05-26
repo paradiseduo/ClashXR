@@ -58,6 +58,7 @@
 		7099A830FE178EEA922BEB70 /* Pods_ClashXR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EC8D7AAAAA52DAACEA7F59 /* Pods_ClashXR.framework */; };
 		8BC67C90243E31CF00784A24 /* goClash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC67C8F243E31CF00784A24 /* goClash.a */; };
 		BE61A1DB245BE8A50007FB64 /* ClashStatusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */; };
+		E8708F9D247CBFF900596943 /* iCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8708F9C247CBFF900596943 /* iCloudManager.swift */; };
 		E8C6AB2B2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6AB2A2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift */; };
 		F910AA24240134AF00116E95 /* ProxyGroupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F910AA23240134AF00116E95 /* ProxyGroupMenu.swift */; };
 		F915A4622366ADEF004840BE /* ClashConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F915A4612366ADEF004840BE /* ClashConnection.swift */; };
@@ -190,6 +191,7 @@
 		8BC67C8F243E31CF00784A24 /* goClash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = goClash.a; path = ClashXR/goClash/goClash.a; sourceTree = SOURCE_ROOT; };
 		8BC67C91243E31E000784A24 /* goClash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = goClash.h; path = ClashXR/goClash/goClash.h; sourceTree = SOURCE_ROOT; };
 		BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashStatusTool.swift; sourceTree = "<group>"; };
+		E8708F9C247CBFF900596943 /* iCloudManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudManager.swift; sourceTree = "<group>"; };
 		E8C6AB2A2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyDelayHistoryMenu.swift; sourceTree = "<group>"; };
 		F910AA23240134AF00116E95 /* ProxyGroupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyGroupMenu.swift; sourceTree = "<group>"; };
 		F915A4612366ADEF004840BE /* ClashConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashConnection.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				F9E754CF239CC21F00CEE7CC /* WebPortalManager.swift */,
 				49B4575C244F4A2A00463C39 /* PrivilegedHelperManager.swift */,
 				49B4575E244FD4D100463C39 /* PrivilegedHelperManager+Legacy.swift */,
+				E8708F9C247CBFF900596943 /* iCloudManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				F976275C23634DF8000EDEFE /* LoginServiceKit.swift in Sources */,
 				4966E9E6211824F300A391FB /* NSImage+extension.swift in Sources */,
 				F92D0B2E236D35C000575E15 /* ProxyItemView.swift in Sources */,
+				E8708F9D247CBFF900596943 /* iCloudManager.swift in Sources */,
 				49B1086A216A356D0064FFCE /* String+Extension.swift in Sources */,
 				F92D0B2C236C7C3600575E15 /* MenuItemBaseView.swift in Sources */,
 				4960A6DB2136529200B940C9 /* JSBridgeHandler.swift in Sources */,

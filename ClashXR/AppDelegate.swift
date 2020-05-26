@@ -83,6 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defer {
             statusItem.menu = statusMenu
         }
+        iCloudManager.shared.setup()
         setupExperimentalMenuItem()
 
         // install proxy helper
@@ -324,12 +325,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func updateConfigFiles() {
         guard let menu = configSeparatorLine.menu else { return }
-        let lineIndex = menu.items.firstIndex(of: configSeparatorLine)!
-        for _ in 0..<lineIndex {
-            menu.removeItem(at: 0)
-        }
-        for item in MenuItemFactory.generateSwitchConfigMenuItems().reversed() {
-            menu.insertItem(item, at: 0)
+        MenuItemFactory.generateSwitchConfigMenuItems {
+            items in
+            let lineIndex = menu.items.firstIndex(of: self.configSeparatorLine)!
+            for _ in 0..<lineIndex {
+                menu.removeItem(at: 0)
+            }
+            for item in items.reversed() {
+                menu.insertItem(item, at: 0)
+            }
         }
     }
 
@@ -433,6 +437,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if WebPortalManager.hasWebProtal {
             WebPortalManager.shared.addWebProtalMenuItem(&statusMenu)
         }
+        iCloudManager.shared.addEnableMenuItem(&experimentalMenu)
         AutoUpgardeManager.shared.setup()
         AutoUpgardeManager.shared.addChanelMenuItem(&experimentalMenu)
         updateExperimentalFeatureStatus()
