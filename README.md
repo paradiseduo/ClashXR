@@ -6,7 +6,7 @@
 </h1>
 
 
-A rule based proxy For Mac base on [Clashr](https://github.com/wzdnzd/clash/tree/clashr).
+A rule based proxy For Mac base on [Clashr](https://github.com/paradiseduo/clashr).
 
 Based on [clashX](https://github.com/yichengchen/clashX)
 
