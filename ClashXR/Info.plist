@@ -84,20 +84,18 @@
 	<false/>
 	<key>NSSupportsSuddenTermination</key>
 	<false/>
-    <key>NSSupportsSuddenTermination</key>
-    <false/>
-    <key>NSUbiquitousContainers</key>
-    <dict>
-        <key>iCloud.com.west2online.ClashXR</key>
-        <dict>
-            <key>NSUbiquitousContainerIsDocumentScopePublic</key>
-            <true/>
-            <key>NSUbiquitousContainerName</key>
-            <string>ClashXR</string>
-            <key>NSUbiquitousContainerSupportedFolderLevels</key>
-            <string>Any</string>
-        </dict>
-    </dict>
+	<key>NSUbiquitousContainers</key>
+	<dict>
+		<key>iCloud.com.west2online.ClashXR</key>
+		<dict>
+			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+			<true/>
+			<key>NSUbiquitousContainerName</key>
+			<string>ClashXR</string>
+			<key>NSUbiquitousContainerSupportedFolderLevels</key>
+			<string>Any</string>
+		</dict>
+	</dict>
 	<key>SMAuthorizedClients</key>
 	<array>
 		<string>anchor apple generic and identifier "com.west2online.ClashXR.ProxyConfigHelper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y6H3BL52H5)</string>
@@ -110,12 +108,12 @@
 	<key>SUFeedURL</key>
 	<string>https://dbj.coding.net/p/BashHub/d/BashHub/git/raw/master/appcast.xml</string>
 	<key>buildTime</key>
-	<string>2020-05-18 13:05</string>
+	<string>2020-06-01 12:36</string>
 	<key>coreVersion</key>
-	<string>v0.20.0</string>
+	<string>v0.20.1</string>
 	<key>gitBranch</key>
 	<string>master</string>
 	<key>gitCommit</key>
-	<string>1.20.0</string>
+	<string>1.20.1-4-ge8966f7</string>
 </dict>
 </plist>
