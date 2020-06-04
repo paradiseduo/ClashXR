@@ -174,12 +174,12 @@ class RemoteConfigManager {
 
 
             if iCloudManager.shared.isICloudEnable() {
-                 ConfigFileManager.shared.stopWatchConfigFile()
+                ConfigFileManager.shared.stopWatchConfigFile()
             } else if config.name == ConfigManager.selectConfigName {
                 ConfigFileManager.shared.pauseForNextChange()
             }
             
-            let saveAction:((String)->Void) = {
+            let saveAction: ((String) -> Void) = {
                 savePath in
                 do {
                     if FileManager.default.fileExists(atPath: savePath) {
@@ -194,7 +194,7 @@ class RemoteConfigManager {
             
             if iCloudManager.shared.isICloudEnable() {
                 iCloudManager.shared.getUrl { url in
-                    guard let url = url else {return}
+                    guard let url = url else { return }
                     let saveUrl = url.appendingPathComponent(Paths.configFileName(for: config.name))
                     saveAction(saveUrl.path)
                 }
