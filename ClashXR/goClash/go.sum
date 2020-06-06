@@ -31,6 +31,8 @@ github.com/oschwald/maxminddb-golang v1.6.0 h1:KAJSjdHQ8Kv45nFIbtoLGrGWqHFajOIm7
 github.com/oschwald/maxminddb-golang v1.6.0/go.mod h1:DUJFucBg2cvqx42YmDa/+xHvb0elJtOm3o4aFQ/nb/w=
 github.com/paradiseduo/clashr v0.20.1 h1:jD77+NSsh/IKeNOnIWGOTcI511+LQHFwLNlIIgZbG/E=
 github.com/paradiseduo/clashr v0.20.1/go.mod h1:SIAOIEsleLAxVarnbpTPgcqR8sDni/UQM94j3oYyL0M=
+github.com/paradiseduo/clashr v0.20.2 h1:4G85LWQJMwOga0Q4QIXE1Rmae9cIAzXht6gZVWazjV4=
+github.com/paradiseduo/clashr v0.20.2/go.mod h1:SIAOIEsleLAxVarnbpTPgcqR8sDni/UQM94j3oYyL0M=
 github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2 h1:JhzVVoYvbOACxoUmOs6V/G4D5nPVUW73rKvXxP4XUJc=
 github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2/go.mod h1:iIss55rKnNBTvrwdmkUpLnDpZoAHvWaiq5+iMmen4AE=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
