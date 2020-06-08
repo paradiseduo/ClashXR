@@ -101,6 +101,10 @@ extension AutoUpgardeManager.Channel {
     }
     
     var urlString: String {
-        return "https://dbj.coding.net/p/BashHub/d/BashHub/git/raw/master/appcast.xml"
+        if self == .stable {
+            return "https://dbj.coding.net/p/BashHub/d/BashHub/git/raw/master/appcast.xml"
+        } else {
+            return "https://dbj.coding.net/p/BashHub/d/BashHub/git/raw/master/appcastest.xml"
+        }
     }
 }

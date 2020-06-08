@@ -121,12 +121,12 @@
 	<key>SUFeedURL</key>
 	<string>https://dbj.coding.net/p/BashHub/d/BashHub/git/raw/master/appcast.xml</string>
 	<key>buildTime</key>
-	<string>2020-06-06 14:13</string>
+	<string>2020-06-08 12:55</string>
 	<key>coreVersion</key>
 	<string>v0.20.2</string>
 	<key>gitBranch</key>
 	<string>master</string>
 	<key>gitCommit</key>
-	<string>1.20.1-7-g8f5512c</string>
+	<string>1.20.1-8-gb0207e1</string>
 </dict>
 </plist>
