@@ -552,7 +552,7 @@
                                                     <fragment content="#bc-ignore!"/>
                                                 </attributedString>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://github.com/yichengchen/clashX"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://github.com/paradiseduo/ClashXR"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
