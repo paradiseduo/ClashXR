@@ -22,7 +22,7 @@ func isAddrValid(addr string) bool {
 		v := comps[len(comps)-1]
 		if port, err := strconv.Atoi(v); err == nil {
 			if port > 0 && port < 65535 {
-				return true
+				return checkPortAvailable(port)
 			}
 		}
 	}
@@ -53,6 +53,17 @@ func parseDefaultConfigThenStart(checkPort, allowLan bool) (*config.Config, erro
 	if err != nil {
 		return nil, err
 	}
+	if cfg.General.MixedPort == 0 {
+		if cfg.General.Port > 0 {
+			cfg.General.MixedPort = cfg.General.Port
+			cfg.General.Port = 0
+		} else if cfg.General.SocksPort > 0 {
+			cfg.General.MixedPort = cfg.General.SocksPort
+			cfg.General.SocksPort = 0
+		} else {
+			cfg.General.MixedPort = 7890
+		}
+	}
 	if checkPort {
 		if !isAddrValid(cfg.General.ExternalController) {
 			port, err := freeport.GetFreePort()
@@ -63,17 +74,11 @@ func parseDefaultConfigThenStart(checkPort, allowLan bool) (*config.Config, erro
 			cfg.General.Secret = ""
 		}
 		cfg.General.AllowLan = allowLan
-	}
 
-	if !checkPortAvailable(cfg.General.Port) {
-		if port, err := freeport.GetFreePort(); err == nil {
-			cfg.General.Port = port
-		}
-	}
-
-	if !checkPortAvailable(cfg.General.SocksPort) {
-		if port, err := freeport.GetFreePort(); err == nil {
-			cfg.General.SocksPort = port
+		if !checkPortAvailable(cfg.General.MixedPort) {
+			if port, err := freeport.GetFreePort(); err == nil {
+				cfg.General.MixedPort = port
+			}
 		}
 	}
 

@@ -9,9 +9,10 @@ import Cocoa
 
 class ClashStatusTool {
     static func checkPortConfig(cfg: ClashConfig?) {
+        guard ConfigManager.shared.isRunning else { return }
         guard let cfg = cfg else { return }
-        if cfg.port == 0 || cfg.socketPort == 0 {
-            Logger.log("checkPortConfig: \(cfg.port) \(cfg.socketPort)", level: .error)
+        if cfg.usedHttpPort == 0 {
+            Logger.log("checkPortConfig: \(cfg.mixedPort) ", level: .error)
             let alert = NSAlert()
             alert.messageText = NSLocalizedString("ClashX Start Error!", comment: "")
             alert.informativeText = NSLocalizedString("Ports Open Fail, Please try to restart ClashX", comment: "")

@@ -119,6 +119,11 @@ class ClashWebViewContoller: NSViewController {
         view.window?.styleMask.insert(.closable)
         view.window?.styleMask.insert(.resizable)
         view.window?.styleMask.insert(.miniaturizable)
+        if #available(OSX 10.13, *) {
+            view.window?.toolbar?.showsBaselineSeparator = false
+            view.wantsLayer = true
+            view.layer?.cornerRadius = 10
+        }
 
         view.window?.minSize = minSize
         if let lastSize = lastSize, lastSize != .zero {
