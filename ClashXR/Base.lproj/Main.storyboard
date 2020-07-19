@@ -1105,6 +1105,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="512" height="512"/>
+        <image name="Icon" width="128" height="128"/>
     </resources>
 </document>
