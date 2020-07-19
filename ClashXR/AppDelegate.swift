@@ -47,7 +47,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var buildApiModeMenuitem: NSMenuItem!
     @IBOutlet var showProxyGroupCurrentMenuItem: NSMenuItem!
     @IBOutlet var copyExportCommandMenuItem: NSMenuItem!
+    @IBOutlet var copyExportCommandExternalMenuItem: NSMenuItem!
     @IBOutlet var experimentalMenu: NSMenu!
+    @IBOutlet var externalControlSeparator: NSMenuItem!
 
     var disposeBag = DisposeBag()
     var statusItemView: StatusItemView!
@@ -73,7 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItemView.frame = CGRect(x: 0, y: 0, width: statusItemLengthWithSpeed, height: 22)
         statusMenu.delegate = self
         setupStatusMenuItemData()
-
+        AppVersionUtil.showUpgradeAlert()
         DispatchQueue.main.async {
             self.postFinishLaunching()
         }
@@ -244,7 +246,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.apiPortMenuItem.title = "Api Port: \(ConfigManager.shared.apiPort)"
                 self.ipMenuItem.title = "IP: \(NetworkChangeNotifier.getPrimaryIPAddress() ?? "")"
 
-                ClashStatusTool.checkPortConfig(cfg: config)
+                if RemoteControlManager.selectConfig == nil {
+                    ClashStatusTool.checkPortConfig(cfg: config)
+                }
 
             }.disposed(by: disposeBag)
     }
@@ -306,6 +310,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let rawProxy = NetworkChangeNotifier.getRawProxySetting()
                 Logger.log("proxy changed to no clashXR setting: \(rawProxy)", level: .warning)
                 NSUserNotificationCenter.default.postProxyChangeByOtherAppNotice()
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter
+            .default
+            .rx
+            .notification(.systemNetworkStatusIPUpdate).map({ _ in
+                NetworkChangeNotifier.getPrimaryIPAddress(allowIPV6: false)
+            }).bind { [weak self] _ in
+                if RemoteControlManager.selectConfig != nil {
+                    self?.resetStreamApi()
+                }
             }.disposed(by: disposeBag)
     }
 
@@ -439,6 +454,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AutoUpgardeManager.shared.setup()
         AutoUpgardeManager.shared.addChanelMenuItem(&experimentalMenu)
         updateExperimentalFeatureStatus()
+        RemoteControlManager.setupMenuItem(separator: externalControlSeparator)
     }
 
     func updateExperimentalFeatureStatus() {
@@ -455,6 +471,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Logger.log("Resting proxy setting, current:\(rawProxy)", level: .warning)
             SystemProxyManager.shared.disableProxy()
             SystemProxyManager.shared.enableProxy()
+        }
+        if RemoteControlManager.selectConfig != nil {
+            resetStreamApi()
         }
     }
 

@@ -18,7 +18,6 @@
 		495340B020DE5F7200B0D3FF /* StatusItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495340AF20DE5F7200B0D3FF /* StatusItemView.xib */; };
 		495340B320DE68C300B0D3FF /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495340B220DE68C300B0D3FF /* StatusItemView.swift */; };
 		495A44D320D267D000888A0A /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A44D220D267D000888A0A /* LaunchAtLogin.swift */; };
-		495BFB8821919B9800C8779D /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BFB8721919B9800C8779D /* RemoteConfigManager.swift */; };
 		4960A6DB2136529200B940C9 /* JSBridgeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4960A6DA2136529200B940C9 /* JSBridgeHandler.swift */; };
 		4966E9E32118153A00A391FB /* NSUserNotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E9E22118153A00A391FB /* NSUserNotificationCenter+Extension.swift */; };
 		4966E9E6211824F300A391FB /* NSImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E9E5211824F300A391FB /* NSImage+extension.swift */; };
@@ -27,7 +26,6 @@
 		49722FF0211F338B00650A41 /* EventStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEB211F338B00650A41 /* EventStream.swift */; };
 		49722FF1211F338B00650A41 /* Witness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49722FEC211F338B00650A41 /* Witness.swift */; };
 		49761DA721C9497000AE13EF /* dashboard in Resources */ = {isa = PBXBuildFile; fileRef = 49761DA621C9497000AE13EF /* dashboard */; };
-		497F0DF320DE2FE50077AD41 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 497F0DF220DE2FE50077AD41 /* Icon.icns */; };
 		4981C88B216BAE4A008CC14A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4981C88D216BAE4A008CC14A /* Localizable.strings */; };
 		4982F51F2344A216008804B0 /* Cgo+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982F51E2344A216008804B0 /* Cgo+Convert.swift */; };
 		49862FA0218418C600A1D5EC /* ClashRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49862F9F218418C600A1D5EC /* ClashRule.swift */; };
@@ -57,6 +55,9 @@
 		4EE3C7052374FF5F00683B13 /* Pods_ClashXR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25EC8D7AAAAA52DAACEA7F59 /* Pods_ClashXR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7099A830FE178EEA922BEB70 /* Pods_ClashXR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EC8D7AAAAA52DAACEA7F59 /* Pods_ClashXR.framework */; };
 		8BC67C90243E31CF00784A24 /* goClash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC67C8F243E31CF00784A24 /* goClash.a */; };
+		BE2DD7C924C40DAF00F67DDC /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2DD7C824C40DAF00F67DDC /* RemoteConfigManager.swift */; };
+		BE2DD7CB24C40DCC00F67DDC /* RemoteControlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2DD7CA24C40DCC00F67DDC /* RemoteControlManager.swift */; };
+		BE2DD7CD24C40DED00F67DDC /* ExternalControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2DD7CC24C40DED00F67DDC /* ExternalControlViewController.swift */; };
 		BE61A1DB245BE8A50007FB64 /* ClashStatusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */; };
 		E8708F9D247CBFF900596943 /* iCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8708F9C247CBFF900596943 /* iCloudManager.swift */; };
 		E8C6AB2B2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6AB2A2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift */; };
@@ -144,7 +145,6 @@
 		495340AF20DE5F7200B0D3FF /* StatusItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusItemView.xib; sourceTree = "<group>"; };
 		495340B220DE68C300B0D3FF /* StatusItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
 		495A44D220D267D000888A0A /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
-		495BFB8721919B9800C8779D /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		4960A6DA2136529200B940C9 /* JSBridgeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSBridgeHandler.swift; sourceTree = "<group>"; };
 		4966E9E22118153A00A391FB /* NSUserNotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserNotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		4966E9E5211824F300A391FB /* NSImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+extension.swift"; sourceTree = "<group>"; };
@@ -154,7 +154,6 @@
 		49722FEC211F338B00650A41 /* Witness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Witness.swift; sourceTree = "<group>"; };
 		49722FED211F338B00650A41 /* Witness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Witness.h; sourceTree = "<group>"; };
 		49761DA621C9497000AE13EF /* dashboard */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dashboard; sourceTree = "<group>"; };
-		497F0DF220DE2FE50077AD41 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		4981C887216BAB8A008CC14A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4981C88C216BAE4A008CC14A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4981C88E216BAE4D008CC14A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -190,6 +189,9 @@
 		4E49531F23753ACC00806BBA /* com.west2online.ClashXR.ProxyConfigHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = com.west2online.ClashXR.ProxyConfigHelper.entitlements; sourceTree = "<group>"; };
 		8BC67C8F243E31CF00784A24 /* goClash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = goClash.a; path = ClashXR/goClash/goClash.a; sourceTree = SOURCE_ROOT; };
 		8BC67C91243E31E000784A24 /* goClash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = goClash.h; path = ClashXR/goClash/goClash.h; sourceTree = SOURCE_ROOT; };
+		BE2DD7C824C40DAF00F67DDC /* RemoteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigManager.swift; path = ../../../../../../Downloads/clashX/ClashX/General/Managers/RemoteConfigManager.swift; sourceTree = "<group>"; };
+		BE2DD7CA24C40DCC00F67DDC /* RemoteControlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteControlManager.swift; sourceTree = "<group>"; };
+		BE2DD7CC24C40DED00F67DDC /* ExternalControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalControlViewController.swift; sourceTree = "<group>"; };
 		BE61A1DA245BE8A50007FB64 /* ClashStatusTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClashStatusTool.swift; sourceTree = "<group>"; };
 		E8708F9C247CBFF900596943 /* iCloudManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudManager.swift; sourceTree = "<group>"; };
 		E8C6AB2A2456B0CE007017F6 /* ProxyDelayHistoryMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyDelayHistoryMenu.swift; sourceTree = "<group>"; };
@@ -283,7 +285,7 @@
 				4952C3CF2117027C004A4FA8 /* ConfigFileManager.swift */,
 				49CF3B5B20CE8068001EBF94 /* ClashResourceManager.swift */,
 				49CF3B6420CEE06C001EBF94 /* ConfigManager.swift */,
-				495BFB8721919B9800C8779D /* RemoteConfigManager.swift */,
+				BE2DD7C824C40DAF00F67DDC /* RemoteConfigManager.swift */,
 				4952C3BE2115C7CA004A4FA8 /* MenuItemFactory.swift */,
 				F935B2FB23085515009E4D33 /* SystemProxyManager.swift */,
 				F977FAAB2366790500C17F1F /* AutoUpgardeManager.swift */,
@@ -292,6 +294,7 @@
 				49B4575C244F4A2A00463C39 /* PrivilegedHelperManager.swift */,
 				49B4575E244FD4D100463C39 /* PrivilegedHelperManager+Legacy.swift */,
 				E8708F9C247CBFF900596943 /* iCloudManager.swift */,
+				BE2DD7CA24C40DCC00F67DDC /* RemoteControlManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				49BC061B212931F4005A0FE7 /* AboutViewController.swift */,
 				499976C721359F0400E7BF83 /* ClashWebViewContoller.swift */,
 				499A485322ED707300F6C675 /* RemoteConfigViewController.swift */,
+				BE2DD7CC24C40DED00F67DDC /* ExternalControlViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -427,7 +431,6 @@
 				49CF3B3A20CD783A001EBF94 /* Support Files */,
 				49CF3B2020CD7463001EBF94 /* AppDelegate.swift */,
 				49CF3B2420CD7465001EBF94 /* Assets.xcassets */,
-				497F0DF220DE2FE50077AD41 /* Icon.icns */,
 				49CF3B2620CD7465001EBF94 /* Main.storyboard */,
 				49CF3B2920CD7465001EBF94 /* Info.plist */,
 				49CF3B3520CD75DF001EBF94 /* ClashX-Bridging-Header.h */,
@@ -597,7 +600,6 @@
 				49CF3B2820CD7465001EBF94 /* Main.storyboard in Resources */,
 				499A485A22ED781100F6C675 /* RemoteConfigAddView.xib in Resources */,
 				4989F98420D02D200001E564 /* Country.mmdb in Resources */,
-				497F0DF320DE2FE50077AD41 /* Icon.icns in Resources */,
 				4989F98E20D0AE990001E564 /* sampleConfig.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,6 +693,7 @@
 				F977FAAE23669D6400C17F1F /* ConnectionManager.swift in Sources */,
 				495340B320DE68C300B0D3FF /* StatusItemView.swift in Sources */,
 				F935B2FC23085515009E4D33 /* SystemProxyManager.swift in Sources */,
+				BE2DD7C924C40DAF00F67DDC /* RemoteConfigManager.swift in Sources */,
 				495A44D320D267D000888A0A /* LaunchAtLogin.swift in Sources */,
 				493AEAE3221AE3420016FE98 /* AppVersionUtil.swift in Sources */,
 				49CF3B2120CD7463001EBF94 /* AppDelegate.swift in Sources */,
@@ -705,12 +708,12 @@
 				492C4869210EE6B9004554A0 /* ApiRequest.swift in Sources */,
 				49CF3B6520CEE06C001EBF94 /* ConfigManager.swift in Sources */,
 				F9E754D0239CC21F00CEE7CC /* WebPortalManager.swift in Sources */,
-				495BFB8821919B9800C8779D /* RemoteConfigManager.swift in Sources */,
 				4982F51F2344A216008804B0 /* Cgo+Convert.swift in Sources */,
 				49722FF1211F338B00650A41 /* Witness.swift in Sources */,
 				49722FF0211F338B00650A41 /* EventStream.swift in Sources */,
 				499A486522EEA3FD00F6C675 /* Array+Safe.swift in Sources */,
 				F92D0B24236BC12000575E15 /* SavedProxyModel.swift in Sources */,
+				BE2DD7CD24C40DED00F67DDC /* ExternalControlViewController.swift in Sources */,
 				F92D0B2A236C759100575E15 /* NSTextField+Vibrancy.swift in Sources */,
 				F910AA24240134AF00116E95 /* ProxyGroupMenu.swift in Sources */,
 				4952C3BF2115C7CA004A4FA8 /* MenuItemFactory.swift in Sources */,
@@ -721,6 +724,7 @@
 				49B4575F244FD4D100463C39 /* PrivilegedHelperManager+Legacy.swift in Sources */,
 				4966E9E32118153A00A391FB /* NSUserNotificationCenter+Extension.swift in Sources */,
 				F9E754D2239CC28D00CEE7CC /* NSAlert+Extension.swift in Sources */,
+				BE2DD7CB24C40DCC00F67DDC /* RemoteControlManager.swift in Sources */,
 				499976C821359F0400E7BF83 /* ClashWebViewContoller.swift in Sources */,
 				49D176A9235614340093DD7B /* ProxyGroupSpeedTestMenuItem.swift in Sources */,
 				F976275C23634DF8000EDEFE /* LoginServiceKit.swift in Sources */,
@@ -903,13 +907,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 32BD82CFF8AEED4A899AF6EB /* Pods-ClashXR.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = ClashXR/ClashXR.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.20.3;
+				CURRENT_PROJECT_VERSION = 1.30.0;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -933,7 +938,7 @@
 					"$(PROJECT_DIR)/ClashXR/goClash",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.20.3;
+				MARKETING_VERSION = 1.30.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.west2online.ClashXR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -949,13 +954,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 236597F60950A41FE65B15D3 /* Pods-ClashXR.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = ClashXR/ClashXR.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.20.3;
+				CURRENT_PROJECT_VERSION = 1.30.0;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -979,7 +985,7 @@
 					"$(PROJECT_DIR)/ClashXR/goClash",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.20.3;
+				MARKETING_VERSION = 1.30.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp";
 				PRODUCT_BUNDLE_IDENTIFIER = com.west2online.ClashXR;
 				PRODUCT_NAME = "$(TARGET_NAME)";

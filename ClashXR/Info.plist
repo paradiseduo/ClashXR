@@ -21,8 +21,6 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIconFile</key>
-	<string>Icon</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.west2online.ClashXR</string>
 	<key>CFBundleInfoDictionaryVersion</key>
