@@ -5,6 +5,7 @@
   <br>
 </h1>
 
+## Since the native clash core already supports the SSR protocol, this project will stop maintenance from now on, thank you for your support all the way ❤️
 
 A rule based proxy For Mac base on [Clashr](https://github.com/paradiseduo/clashr).
 
