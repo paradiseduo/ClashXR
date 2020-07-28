@@ -24,7 +24,10 @@ You can do [this](https://github.com/paradiseduo/subweb) to use ClashXR.
 
 ## Install
 
-You can download from [release](https://github.com/paradiseduo/ClashXR/releases) page
+You can download from [release](https://github.com/paradiseduo/ClashXR/releases) page， or use homebrew
+```
+brew cask install clashxr
+```
 
 ## Build
 - Make sure have python3 and golang installed in your computer.
