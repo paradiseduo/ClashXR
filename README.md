@@ -80,3 +80,5 @@ Checkout [Clash](https://github.com/Dreamacro/clash) or [SS-Rule-Snippet for Cla
   ```
 
 
+## Star Trend
+[![Stargazers over time](https://starchart.cc/paradiseduo/ClashXR.svg)](https://starchart.cc/paradiseduo/ClashXR)
